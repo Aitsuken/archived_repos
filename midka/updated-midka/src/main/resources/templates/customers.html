@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/ico" th:href="@{/doggy.ico}"/>
+</head>
+<body>
+<a th:href="@{/}">Go back</a>
+<br>
+
+<form th:action="@{/addCustomer}" th:object="${customers}" method="post">
+<!--    ID: <input type="text" name="id">-->
+    Name: <input type="text" name="firstName">
+    Surname: <input type="text" name="lastName">
+    Email Address: <input type="text" name="emailAddress">
+    Job title: <input type="text" name="jobTitle">
+    Mobile Phone: <input type="text" name="mobilePhone">
+    City: <input type="text" name="city">
+    Web Page: <input type="text" name="webPage">
+    <button type="submit">ADD</button>
+</form>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Email Address</td>
+        <td>Job title</td>
+        <td>Mobile Phone</td>
+        <td>City</td>
+        <td>Web Page</td>
+    </tr>
+<tr th:each="customer : ${customers}">
+    <td th:text="${customer.id}">ID</td>
+    <td th:text="${customer.firstName}">Name</td>
+    <td th:text="${customer.lastName}">Surname</td>
+    <td th:text="${customer.emailAddress}">Email Address</td>
+    <td th:text="${customer.jobTitle}">Job Title</td>
+    <td th:text="${customer.mobilePhone}">Mobile Phone</td>
+    <td th:text="${customer.city}">City</td>
+    <td th:text="${customer.webPage}">Web Page</td>
+<!--    <td>
+        <form action="#" th:action="@{'/updateCovidInfo/'+${patient.id}}" th:method="post" >
+            <input type="hidden" name="_method" value="post" />
+            <button type="submit" id="Approve" name="Approve">Update Covid Info </button>
+        </form>
+    </td>
+
+    <td>
+        <form action="#" th:action="@{'/deletePatient/'+${patient.id}}" th:method="post" >
+            <button type="submit" >Delete Patient </button>
+        </form>
+    </td>-->
+    <br>
+</tr>
+</table>
+<!--<img th:src="@{alatoo.png}" class="imagination"/>-->
+</body>
+</html>
